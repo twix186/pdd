@@ -12,8 +12,13 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
-    'default' => env('DB_CONNECTION', 'pgsql'),
+$url = parse_url(getenv("postgres://xcfovdnuwjkdcx:d4a3fc1badeae1b0f99b53396baf95f9353fa3312f8544ffa74659e1a1af62ef@ec2-54-75-238-138.eu-west-1.compute.amazonaws.com:5432/dddpe7gifonb3s
+"));
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
+    'default' =>  'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,20 +63,16 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
+'pgsql' => array(
+        'driver'   => 'pgsql',
+        'host'     => $host,
+        'database' => $database,
+        'username' => $username,
+        'password' => $password,
+        'charset'  => 'utf8',
+        'prefix'   => '',
+        'schema'   => 'public',
+    ),
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',

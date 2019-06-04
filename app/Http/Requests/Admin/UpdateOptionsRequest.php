@@ -24,7 +24,7 @@ class UpdateOptionsRequest extends FormRequest
     {
         return [
             
-            'is_correct' => 'max:2147483647|nullable|numeric',
+            'is_correct' => 'nullable|boolean',
             'question_id' => 'max:2147483647|nullable|numeric',
         ];
     }

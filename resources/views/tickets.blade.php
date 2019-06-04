@@ -1,15 +1,63 @@
 @extends('layouts.boot')
 
 @section('content')
-    <h2 style="text-align: center" class="h1">Тест по билетам ПДД</h2>
-    <div id="jQuizler" class="main-quiz-holder" style="{{ URL::asset('css/jQuizler.css')}}">
-        <h3>Билет №1</h3>
-        <button class="btn btn-large">Начать</button>
+    <h3 class="page-title">@lang('Билеты')</h3>
+    {!! Form::open(['method' => 'POST', 'route' => ['tests.store']]) !!}
+    @if (Auth::guest())
+        <span>Что бы пройти тестирование нужно <a href="{{url('login')}}">авторизоваться</a></span>
+    @else
+    <div class="panel panel-default">
+
+        @if(count($questions) > 0)
+            <div class="panel-body">
+                <?php $i = 1; ?>
+                @foreach($questions as $question)
+                    @if ($i > 1) <hr /> @endif
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <div class="form-group">
+                                <strong>Вопрос №{{ $i }}<br><img src='{{ $question->picture }}'><br />{!! nl2br($question->text) !!}</strong>
+                                <input
+                                        type="hidden"
+                                        name="questions[{{ $i }}]"
+                                        value="{{ $question->id }}">
+                                <br>
+                                @foreach($question->options as $option)
+                                    <br>
+                                    <label class="radio-inline">
+                                        <input
+                                                type="radio"
+                                                name="answers[{{ $question->id }}]"
+                                                value="{{ $option->id }}">
+                                        {{ $option->text }}
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <?php $i++; ?>
+                @endforeach
+            </div>
+        @endif
+
     </div>
-@endsection
-@section('css')
 
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/jQuizler.css" />
+    {!! Form::submit(trans('Проверить'), ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
+    @endif
+@stop
 
-@endsection
+@section('javascript')
+    @parent
+    <script src="{{ url('quickadmin/js') }}/timepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
+    <script>
+        $('.datetime').datetimepicker({
+            autoclose: true,
+            dateFormat: "{{ config('app.date_format_js') }}",
+            timeFormat: "hh:mm:ss"
+        });
+    </script>
+
+@stop

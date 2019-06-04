@@ -3,7 +3,7 @@
 Route::get('/', 'WelcomeController@index');
 Route::get('/pdd', 'PddController@index');
 Route::get('/exam', 'ExamController@index');
-Route::resource('/tickets', 'TestController');
+Route::resource('/tickets', 'TicketsController');
 Route::resource('tests', 'TestController');
 Route::resource('results', 'ResultsController');
 // Authentication Routes...

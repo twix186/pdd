@@ -22,9 +22,8 @@ class UpdateOptionsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            
-            'is_correct' => 'nullable|boolean',
+        return [            
+            'is_correct' => 'nullable',
             'question_id' => 'max:2147483647|nullable|numeric',
         ];
     }

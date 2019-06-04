@@ -23,7 +23,7 @@ class StoreOptionsRequest extends FormRequest
     public function rules()
     {
         return [
-            'is_correct' => 'nullable|boolean',
+            'is_correct' => 'nullable',
             'question_id' => 'max:2147483647|nullable|numeric',
         ];
     }

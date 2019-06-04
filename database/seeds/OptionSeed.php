@@ -13,7 +13,7 @@ class UserSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'text' => 'В и Г', 'is_correct' => 0, 'question_id' => 1, 'created_at' => '', 'updated_at' => '', 'deleted_at' => '',],
+           // ['id' => 1, 'text' => 'В и Г', 'is_correct' => 0, 'question_id' => 1, 'created_at' => '', 'updated_at' => '', 'deleted_at' => '',],
 
         ];
 

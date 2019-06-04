@@ -9,7 +9,9 @@ use App\Http\Requests;
 class WelcomeController extends Controller
 {
     public function index()
-    {     
-        return view('welcome');
+    {
+        $post = DB::table('posts')->get();
+
+        return view('welcome',['posts'=> $post]);
     }
 }

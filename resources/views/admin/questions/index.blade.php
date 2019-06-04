@@ -32,7 +32,7 @@
                         @can('question_delete')
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
-
+						<th>ID</th>
                         <th>@lang('quickadmin.questions.fields.text')</th>
                         <th>@lang('quickadmin.questions.fields.picture')</th>
                         @if( request('show_deleted') == 1 )
@@ -50,7 +50,7 @@
                                 @can('question_delete')
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
-
+								<td>{{ $question->id }}</td>
                                 <td field-key='text'>{{ $question->text }}</td>
                                 <td field-key='picture'>{{ $question->picture }}</td>
                                 @if( request('show_deleted') == 1 )

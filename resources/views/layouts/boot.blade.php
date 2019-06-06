@@ -30,12 +30,13 @@
         *********************************************************************************************************************************************************** -->
     <!--header start-->
     <header class="header black-bg">
-        <div class="sidebar-toggle-box">
-            <div class="fa fa-bars tooltips" data-placement="right"></div>
-        </div>
+
         <!--logo start-->
         <a href="{{ url('/') }}" class="logo"><b>ПДД<span>Онлайн</span></b></a>
         <!--logo end-->
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right"></div>
+        </div>
         <div class="top-menu">
                 <ul class="nav pull-right top-menu">
                     <!-- Authentication Links -->
@@ -66,9 +67,10 @@
                     @if (Auth::guest())
                     @else
                         {{ Auth::user()->name }}
+                        <hr>
                     @endif
                 </h5>
-                <hr>
+
                 @if (\Request::is('/'))
                 <li class="sub-menu centered">
                     <a href="{{url('/')}}" class="active">

@@ -17,7 +17,7 @@ class TicketsController extends Controller
 {
     // $topics = Topic::inRandomOrder()->limit(10)->get();
 
-    $questions = Question::inRandomOrder()->limit(10)->get();
+    $questions = Question::limit(10)->get();
     foreach ($questions as &$question) {
         $question->options = Option::where('question_id', $question->id)->inRandomOrder()->get();
     }

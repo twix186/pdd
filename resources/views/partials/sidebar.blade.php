@@ -9,8 +9,8 @@
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
-                    <i class="fa fa-wrench"></i>
-                    <span class="title">На главную</span>
+                    <i class="fa fa-arrow-left"></i>
+                    <span class="title"><strong>На главную</strong></span>
                 </a>
             </li>
 
@@ -85,7 +85,7 @@
 
             <li>
                 <a href="#logout" onclick="$('#logout').submit();">
-                    <i class="fa fa-arrow-left"></i>
+                    <i class="fa fa-power-off"></i>
                     <span class="title">@lang('quickadmin.qa_logout')</span>
                 </a>
             </li>

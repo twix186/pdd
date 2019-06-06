@@ -1,7 +1,7 @@
 @extends('layouts.boot')
 
 @section('content')
-    <h3 class="page-title">@lang('Билеты')</h3>
+    <h3 class="page-title">@lang('Билет 1')</h3>
     {!! Form::open(['method' => 'POST', 'route' => ['tests.store']]) !!}
     @if (Auth::guest())
         <span>Что бы пройти тестирование нужно <a href="{{url('login')}}">авторизоваться</a></span>

@@ -4,10 +4,8 @@
     <div class="row">
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">@lang('quickadmin.qa_dashboard')</div>
-
                 <div class="panel-body">
-                    @lang('quickadmin.qa_dashboard_text')
+                    <h3>Здравствуйте, {{ Auth::user()->name }}</h3>
                 </div>
             </div>
         </div>

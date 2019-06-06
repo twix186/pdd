@@ -67,7 +67,7 @@
                     @if (Auth::guest())
                     @else
                         {{ Auth::user()->name }}
-                        <hr>
+                        <hr style="margin-top: 16px; margin-bottom: 10px; border: 0; border-top: 3px solid #22242a;">
                     @endif
                 </h5>
 

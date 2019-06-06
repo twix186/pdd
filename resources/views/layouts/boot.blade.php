@@ -69,7 +69,7 @@
                     @endif
                 </h5>
                 <hr>
-                @if (\Request::is('welcome'))
+                @if (\Request::is('/'))
                 <li class="sub-menu centered">
                     <a href="{{url('/')}}" class="active">
                         <span>Новости</span>

